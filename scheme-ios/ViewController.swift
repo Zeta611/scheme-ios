@@ -137,7 +137,7 @@ extension ViewController: UITextFieldDelegate {
 extension ViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if segment == 0 {
+    if segment == 1 {
       return Interpreter.main.nodeArray.count
     } else {
       return Interpreter.main.symbolTable.count
@@ -149,12 +149,12 @@ extension ViewController: UITableViewDataSource {
     if segment == 1 {
       let left = Interpreter.main.nodeArray[indexPath.row].left
       let right = Interpreter.main.nodeArray[indexPath.row].right
-      cell.textLabel?.text = "\(indexPath.row): \(left), \(right)"
+      cell.textLabel?.text = "\(indexPath.row + 1): left \(left), right \(right)"
     } else {
       let table = Interpreter.main.symbolTable.table.enumerated().filter { $0.element.key != nil }
       let offset = table[indexPath.row].offset
       let key = table[indexPath.row].element.key!
-      cell.textLabel?.text = "\(-offset): \(key)"
+      cell.textLabel?.text = "\(-offset): '\(key)'"
     }
     return cell
   }
