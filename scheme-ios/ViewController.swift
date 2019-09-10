@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  private let semaphore = DispatchSemaphore(value: 1)
+  private let semaphore = DispatchSemaphore(value: 0)
   private let interpreterQueue = DispatchQueue.global(qos: .userInteractive)
   private var segment = 0
 
@@ -147,9 +147,14 @@ extension ViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     if segment == 1 {
-      let left = Interpreter.main.nodeArray[indexPath.row].left
-      let right = Interpreter.main.nodeArray[indexPath.row].right
-      cell.textLabel?.text = "\(indexPath.row + 1): left \(left), right \(right)"
+      let node = Interpreter.main.nodeArray[indexPath.row]
+      let left = node.left
+      let right = node.right
+      if left < 0, let value = Interpreter.main.symbolTable.getKey(from: -left) {
+        cell.textLabel?.text = "\(indexPath.row + 1): left \(left) (\(value)), right \(right)"
+      } else {
+        cell.textLabel?.text = "\(indexPath.row + 1): left \(left), right \(right)"
+      }
     } else {
       let table = Interpreter.main.symbolTable.table.enumerated().filter { $0.element.key != nil }
       let offset = table[indexPath.row].offset

@@ -67,11 +67,17 @@ private extension Interpreter {
   /// parentheses, or the negative hash value for a single token. The index is
   /// one-based, in order to identify a terminator with a zero.
   func read() -> Int {
-    guard let startingToken = tokenizer.get() else { return 0 }
+    guard var startingToken = tokenizer.get() else { return 0 }
+
+    // Skip whitespaces
+    while startingToken.type == .whitespace {
+      guard let token = tokenizer.get() else { return 0 }
+      startingToken = token
+    }
 
     guard let tokenHashValue = symbolTable
       .insert(key: startingToken.value, element: nil)
-    else { fatalError("symbolTable is full") }
+      else { fatalError("symbolTable is full") }
 
     // Immediately return the hash value of a non-parenthesis starting token.
     guard startingToken.isEqual(to: Parenthesis.left)
@@ -87,9 +93,11 @@ private extension Interpreter {
 
     // Repeat adding a node until the token reaches a right parenthesis.
     while let token = tokenizer.get(), !token.isEqual(to: Parenthesis.right) {
+      guard token.type != .whitespace else { continue }
+
       guard let tokenHashValue = symbolTable
         .insert(key: token.value, element: nil)
-      else { fatalError("symbolTable is full") }
+        else { fatalError("symbolTable is full") }
 
       // Allocate a new node, and set `currentNodeIndex` as the index of it.
       nodeArray.append(.zero)
@@ -123,18 +131,19 @@ private extension Interpreter {
   ///     the list.
   func print(_ rootNodeIndex: Int, startList: Bool) {
     if rootNodeIndex == 0 {
-      output("()")
+      output("() ")
     } else if rootNodeIndex < 0 {
       output(symbolTable.getKey(from: -rootNodeIndex) ?? "Unknown symbol")
+      output(" ")
     } else if rootNodeIndex > 0 {
-      if startList { output("(") }
+      if startList { output("( ") }
 
       print(nodeArray[rootNodeIndex - 1].left, startList: true)
 
       if nodeArray[rootNodeIndex - 1].right != 0 {
         print(nodeArray[rootNodeIndex - 1].right, startList: false)
       } else {
-        output(")")
+        output(") ")
       }
     }
   }
