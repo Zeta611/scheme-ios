@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     let tableView = UITableView()
     tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.dataSource = self
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
     tableView.tableFooterView = UIView()
     return tableView
   }()
@@ -76,11 +76,15 @@ class ViewController: UIViewController {
     [
       NSLayoutConstraint.constraints(
         withVisualFormat: "V:[textField(==40)]-[label(==40)]-[button(==40)]-[tableView]|",
-        options: .alignAllLeading,
+        options: .alignAllCenterX,
         metrics: nil,
         views: views),
       NSLayoutConstraint.constraints(
-        withVisualFormat: "H:|-[textField(==label,==button,==tableView)]-|",
+        withVisualFormat: "H:|-[textField(==label,==button)]-|",
+        metrics: nil,
+        views: views),
+      NSLayoutConstraint.constraints(
+        withVisualFormat: "H:|[tableView]|",
         metrics: nil,
         views: views),
     ]
@@ -146,20 +150,27 @@ extension ViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    cell.selectionStyle = .none
     if segment == 1 {
+      cell.textLabel?.text = "Index \(indexPath.row + 1)"
+
       let node = Interpreter.main.nodeArray[indexPath.row]
       let left = node.left
       let right = node.right
+      let rightText = right == 0 ? "nil" : "\(right)"
+
       if left < 0, let value = Interpreter.main.symbolTable.getKey(from: -left) {
-        cell.textLabel?.text = "\(indexPath.row + 1): left \(left) (\(value)), right \(right)"
+        cell.detailTextLabel?.text = "Left: '\(value)' (\(left)); Right: \(rightText)"
       } else {
-        cell.textLabel?.text = "\(indexPath.row + 1): left \(left), right \(right)"
+        cell.detailTextLabel?.text = "Left: \(left); Right: \(rightText)"
       }
     } else {
-      let table = Interpreter.main.symbolTable.table.enumerated().filter { $0.element.key != nil }
+      let table = Interpreter.main.symbolTable.table.enumerated()
+        .filter { $0.element.key != nil }
       let offset = table[indexPath.row].offset
       let key = table[indexPath.row].element.key!
-      cell.textLabel?.text = "\(-offset): '\(key)'"
+      cell.textLabel?.text = "Hash value: \(-offset)"
+      cell.detailTextLabel?.text = key
     }
     return cell
   }

@@ -19,6 +19,7 @@
 		699718832326BDCA001DDE2D /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997187C2326BDCA001DDE2D /* Token.swift */; };
 		699718842326BDCA001DDE2D /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997187D2326BDCA001DDE2D /* TokenType.swift */; };
 		699718862326C075001DDE2D /* UIViewController+hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699718852326C075001DDE2D /* UIViewController+hideKeyboardWhenTappedAround.swift */; };
+		69A1312B23282C34005AA05F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A1312A23282C34005AA05F /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		6997187C2326BDCA001DDE2D /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		6997187D2326BDCA001DDE2D /* TokenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
 		699718852326C075001DDE2D /* UIViewController+hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboardWhenTappedAround.swift"; sourceTree = "<group>"; };
+		69A1312A23282C34005AA05F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				699718642326BCC7001DDE2D /* AppDelegate.swift */,
 				699718662326BCC7001DDE2D /* ViewController.swift */,
+				69A1312A23282C34005AA05F /* TableViewCell.swift */,
 				699718852326C075001DDE2D /* UIViewController+hideKeyboardWhenTappedAround.swift */,
 				699718762326BDBA001DDE2D /* Interpreter */,
 				6997186B2326BCC8001DDE2D /* Assets.xcassets */,
@@ -169,6 +172,7 @@
 				699718802326BDCA001DDE2D /* NodeArray.swift in Sources */,
 				699718812326BDCA001DDE2D /* StringStream.swift in Sources */,
 				6997187F2326BDCA001DDE2D /* Tokenizer.swift in Sources */,
+				69A1312B23282C34005AA05F /* TableViewCell.swift in Sources */,
 				6997187E2326BDCA001DDE2D /* HashTable.swift in Sources */,
 				699718652326BCC7001DDE2D /* AppDelegate.swift in Sources */,
 				699718822326BDCA001DDE2D /* Interpreter.swift in Sources */,
