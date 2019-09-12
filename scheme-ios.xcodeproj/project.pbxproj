@@ -13,13 +13,14 @@
 		6997186F2326BCC8001DDE2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6997186D2326BCC8001DDE2D /* LaunchScreen.storyboard */; };
 		6997187E2326BDCA001DDE2D /* HashTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699718772326BDCA001DDE2D /* HashTable.swift */; };
 		6997187F2326BDCA001DDE2D /* Tokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699718782326BDCA001DDE2D /* Tokenizer.swift */; };
-		699718802326BDCA001DDE2D /* NodeArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699718792326BDCA001DDE2D /* NodeArray.swift */; };
+		699718802326BDCA001DDE2D /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699718792326BDCA001DDE2D /* Node.swift */; };
 		699718812326BDCA001DDE2D /* StringStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997187A2326BDCA001DDE2D /* StringStream.swift */; };
 		699718822326BDCA001DDE2D /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997187B2326BDCA001DDE2D /* Interpreter.swift */; };
 		699718832326BDCA001DDE2D /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997187C2326BDCA001DDE2D /* Token.swift */; };
 		699718842326BDCA001DDE2D /* TokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997187D2326BDCA001DDE2D /* TokenType.swift */; };
 		699718862326C075001DDE2D /* UIViewController+hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699718852326C075001DDE2D /* UIViewController+hideKeyboardWhenTappedAround.swift */; };
 		69A1312B23282C34005AA05F /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A1312A23282C34005AA05F /* TableViewCell.swift */; };
+		69E4BD80232AC9D10006200C /* NodePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E4BD7F232AC9D10006200C /* NodePool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +32,14 @@
 		699718702326BCC8001DDE2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		699718772326BDCA001DDE2D /* HashTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTable.swift; sourceTree = "<group>"; };
 		699718782326BDCA001DDE2D /* Tokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tokenizer.swift; sourceTree = "<group>"; };
-		699718792326BDCA001DDE2D /* NodeArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeArray.swift; sourceTree = "<group>"; };
+		699718792326BDCA001DDE2D /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		6997187A2326BDCA001DDE2D /* StringStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringStream.swift; sourceTree = "<group>"; };
 		6997187B2326BDCA001DDE2D /* Interpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
 		6997187C2326BDCA001DDE2D /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		6997187D2326BDCA001DDE2D /* TokenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenType.swift; sourceTree = "<group>"; };
 		699718852326C075001DDE2D /* UIViewController+hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboardWhenTappedAround.swift"; sourceTree = "<group>"; };
 		69A1312A23282C34005AA05F /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		69E4BD7F232AC9D10006200C /* NodePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodePool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +89,8 @@
 			children = (
 				699718772326BDCA001DDE2D /* HashTable.swift */,
 				6997187B2326BDCA001DDE2D /* Interpreter.swift */,
-				699718792326BDCA001DDE2D /* NodeArray.swift */,
+				699718792326BDCA001DDE2D /* Node.swift */,
+				69E4BD7F232AC9D10006200C /* NodePool.swift */,
 				6997187A2326BDCA001DDE2D /* StringStream.swift */,
 				6997187C2326BDCA001DDE2D /* Token.swift */,
 				699718782326BDCA001DDE2D /* Tokenizer.swift */,
@@ -169,8 +172,9 @@
 				699718862326C075001DDE2D /* UIViewController+hideKeyboardWhenTappedAround.swift in Sources */,
 				699718842326BDCA001DDE2D /* TokenType.swift in Sources */,
 				699718672326BCC7001DDE2D /* ViewController.swift in Sources */,
-				699718802326BDCA001DDE2D /* NodeArray.swift in Sources */,
+				699718802326BDCA001DDE2D /* Node.swift in Sources */,
 				699718812326BDCA001DDE2D /* StringStream.swift in Sources */,
+				69E4BD80232AC9D10006200C /* NodePool.swift in Sources */,
 				6997187F2326BDCA001DDE2D /* Tokenizer.swift in Sources */,
 				69A1312B23282C34005AA05F /* TableViewCell.swift in Sources */,
 				6997187E2326BDCA001DDE2D /* HashTable.swift in Sources */,

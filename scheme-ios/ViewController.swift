@@ -142,7 +142,7 @@ extension ViewController: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if segment == 1 {
-      return Interpreter.main.nodeArray.count
+      return Interpreter.main.nodePool.capacity
     } else {
       return Interpreter.main.symbolTable.count
     }
@@ -154,7 +154,7 @@ extension ViewController: UITableViewDataSource {
     if segment == 1 {
       cell.textLabel?.text = "Index \(indexPath.row + 1)"
 
-      let node = Interpreter.main.nodeArray[indexPath.row]
+      let node = Interpreter.main.nodePool.nodes[indexPath.row]
       let left = node.left
       let right = node.right
       let rightText = right == 0 ? "nil" : "\(right)"

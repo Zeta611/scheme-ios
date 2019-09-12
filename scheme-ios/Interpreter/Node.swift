@@ -1,20 +1,26 @@
 //
-//  NodeArray.swift
+//  Node.swift
 //  Scheme-Swift
 //
-//  Created by Jaeho Lee on 06/09/2019.
+//  Created by Jaeho Lee on 13/09/2019.
 //  Copyright © 2019 Jaeho Lee. All rights reserved.
 //
 
 import Foundation
 
-typealias NodeArray = [Node]
+class Node {
 
-struct Node {
   var left: Int
   var right: Int
 
-  static var zero = Node(left: 0, right: 0)
+  convenience init() {
+    self.init(left: 0, right: 0)
+  }
+
+  init(left: Int, right: Int) {
+    self.left = left
+    self.right = right
+  }
 }
 
 
