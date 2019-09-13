@@ -29,7 +29,10 @@ extension Tokenizer {
       return tokens[index]
     }
 
-    guard let c = stream.peek() else { return nil }
+    guard let c = stream.peek() else {
+      index -= 1
+      return nil
+    }
 
     let token: Token
     switch c {
